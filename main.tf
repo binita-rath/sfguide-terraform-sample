@@ -9,9 +9,9 @@ terraform {
 
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
-  username=${{ secrets.SNOWFLAKE_USER }}
-  password=${{ secrets.SNOWFLAKE_PASSWORD }}
-  account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+  username=var.username
+  password=var.password
+  account=var.account
   
 }
 
