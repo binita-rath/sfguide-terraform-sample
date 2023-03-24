@@ -21,7 +21,16 @@ jobs:
         with:
           # terraform_version: 1.4.2
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-
+      
+      - name: Get secret from deploy env
+        env:
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+          SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+        run: |
+          echo export SNOWFLAKE_USER=${{ secrets.SNOWFLAKE_USER }}
+          echo export SNOWFLAKE_PASSWORD=${{ secrets.SNOWFLAKE_PASSWORD }}
+          echo export SNOWFLAKE_ACCOUNT=${{ secrets.SNOWFLAKE_ACCOUNT }}
       
 
       - name: Terraform Init
