@@ -9,6 +9,10 @@ terraform {
 
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
+  username="BINITARATH"
+  password="Binit@feb2023"
+  account="az60464.australia-east.azure"
+  
 }
 
 resource "snowflake_database" "db" {
