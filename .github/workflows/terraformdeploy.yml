@@ -35,7 +35,11 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -var-file=./tfm.auto.tfvars
+        run: |
+            export username=${{ secrets.TF_VAR_USER }}
+            export password=${{ secrets.TF_VAR_PASSWORD }}
+            export account=${{ secrets.TF_VAR_ACCOUNT }}
+            terraform init 
       
       - name: Terraform Validate
         id: validate
@@ -77,4 +81,8 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/svcuser' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: |
+            export username=${{ secrets.TF_VAR_USER }}
+            export password=${{ secrets.TF_VAR_PASSWORD }}
+            export account=${{ secrets.TF_VAR_ACCOUNT }}
+            terraform apply -auto-approve
