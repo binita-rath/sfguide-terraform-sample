@@ -1,4 +1,10 @@
 terraform {
+
+  cloud {
+        organization = "binita-kpmg" 
+        workspaces {
+          name = "terraform-github-actions" 
+        }
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
@@ -16,7 +22,7 @@ provider "snowflake" {
 }
 
 resource "snowflake_database" "db" {
-  name     = "TF1_DEMO_19MAR"
+  name     = "TF1_DEMO_18MAR"
 }
 
 

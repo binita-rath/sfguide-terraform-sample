@@ -1,3 +1,11 @@
-username = "${{ secrets.SNOWFLAKE_USERNAME }}"
-password = "${{ secrets.SNOWFLAKE_PASSWORD }}"
-account = "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+variables:
+ -name: username
+  value: "${{ secrets.SNOWFLAKE_USERNAME }}"
+
+-name: password
+ value: "${{ secrets.SNOWFLAKE_PASSWORD }}"
+
+-name: account
+ value: "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+
+
