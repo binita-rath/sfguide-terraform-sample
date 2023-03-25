@@ -1,0 +1,3 @@
+username: ${{ secrets.SNOWFLAKE_USERNAME }}
+password: ${{ secrets.SNOWFLAKE_PASSWORD }}
+account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
