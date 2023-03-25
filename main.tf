@@ -7,6 +7,9 @@ terraform {
   }
 }
 
+variable "username" {}
+variable "password" {}
+variable "account" {}
 
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
