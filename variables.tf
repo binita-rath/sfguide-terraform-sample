@@ -1,17 +1,17 @@
 variable "username" {
   description = "username"
   type        = string
-  default     = ""
+  default     = var.username
 }
 
 variable "password" {
   description = "password"
   type        = string
-  default     = ""
+  default     = var.password
 }
 
 variable "account" {
   description = "account"
   type        = string
-  default     = ""
+  default     = var.account
 }
