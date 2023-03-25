@@ -7,15 +7,11 @@ terraform {
   }
 }
 
-variable "username" {}
-variable "password" {}
-variable "account" {}
-
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
-  username=var.username
-  password=var.password
-  account=var.account
+  username="${var.username}" 
+  password="${var.password}" 
+  account="${var.account}" 
   
 }
 
