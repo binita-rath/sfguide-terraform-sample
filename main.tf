@@ -16,7 +16,7 @@ provider "snowflake" {
 }
 
 resource "snowflake_database" "db" {
-  name     = "TF1_DEMO_20MAR"
+  name     = "TF1_DEMO_19MAR"
 }
 
 
