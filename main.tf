@@ -7,15 +7,20 @@ terraform {
   }
 }
 
+variable "username" {}
+variable "password" {}
+variable "account" {}
+
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
-  username="BINITARATH"
-  password="Binit@feb2023"
-  account="az60464.australia-east.azure"
+  username=var.username
+  password=var.password
+  account=var.account
   
 }
 
 resource "snowflake_database" "db" {
   name     = "TF1_DEMO_21MAR"
 }
+
 
