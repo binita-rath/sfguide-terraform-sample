@@ -1,17 +1,17 @@
 variable "username" {
   description = "username"
   type        = string
-  #default     = "BINITARATH"
+  default     = ""
 }
 
 variable "password" {
   description = "password"
   type        = string
-  #default     = "Binit@feb2023"
+  default     = ""
 }
 
 variable "account" {
   description = "account"
   type        = string
-  #default     = "az60464.australia-east.azure"
+  default     = ""
 }
