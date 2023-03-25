@@ -81,4 +81,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/svcuser' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform apply -var-file=./config.yml -auto-approve
