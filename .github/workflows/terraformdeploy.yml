@@ -28,9 +28,9 @@ jobs:
           password: ${{ secrets.SNOWFLAKE_PASSWORD }}
           account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
         run: |
-           export username=${{ secrets.SNOWFLAKE_USER }}
-           export password=${{ secrets.SNOWFLAKE_PASSWORD }}
-           export account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+           echo export username=${{ secrets.SNOWFLAKE_USER }}
+           echo export password=${{ secrets.SNOWFLAKE_PASSWORD }}
+           echo export account=${{ secrets.SNOWFLAKE_ACCOUNT }}
       
 
       - name: Terraform Init
