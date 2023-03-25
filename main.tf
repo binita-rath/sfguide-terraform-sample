@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-variable "username" {
+/*variable "username" {
   description = "username."
   type        = string
   #default     = "BINITARATH"
@@ -23,18 +23,18 @@ variable "account" {
   description = "account"
   type        = string
   #default     = "az60464.australia-east.azure"
-}
+}/*
 
 provider "snowflake" {
   role  = "RL_CICD_INFRA"
-  username=var.username
-  password=var.password
-  account=var.account
+  #username=var.username
+  #password=var.password
+  #account=var.account
   
 }
 
 resource "snowflake_database" "db" {
-  name     = "TF1_DEMO_21MAR"
+  name     = "TF1_DEMO_20MAR"
 }
 
 
