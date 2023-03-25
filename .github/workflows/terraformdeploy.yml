@@ -24,13 +24,13 @@ jobs:
       
       - name: Get secret from deploy env
         env:
-          username: ${{ secrets.SNOWFLAKE_USER }}
-          password: ${{ secrets.SNOWFLAKE_PASSWORD }}
-          account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+          username: ${{ secrets.TF_VAR_USER }}
+          password: ${{ secrets.TF_VAR_PASSWORD }}
+          account: ${{ secrets.TF_VAR_ACCOUNT }}
         run: |
-           echo export username=${{ secrets.SNOWFLAKE_USER }}
-           echo export password=${{ secrets.SNOWFLAKE_PASSWORD }}
-           echo export account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+            export username=${{ secrets.TF_VAR_USER }}
+            export password=${{ secrets.TF_VAR_PASSWORD }}
+            export account=${{ secrets.TF_VAR_ACCOUNT }}
       
 
       - name: Terraform Init
