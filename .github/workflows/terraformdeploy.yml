@@ -24,13 +24,13 @@ jobs:
       
       - name: Get secret from deploy env
         env:
-          SNOWFLAKE_USERNAME: ${{ secrets.SNOWFLAKE_USERNAME }}
+          SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
         run: |
-            export SNOWFLAKE_USERNAME="$username"
-            export SNOWFLAKE_PASSWORD="$password"
-            export SNOWFLAKE_ACCOUNT="$account"
+            export SNOWFLAKE_USER="$SNOWFLAKE_USER"
+            export SNOWFLAKE_PASSWORD="$SNOWFLAKE_PASSWORD"
+            export SNOWFLAKE_ACCOUNT="$SNOWFLAKE_ACCOUNT"
       
 
       - name: Terraform Init
@@ -82,4 +82,4 @@ jobs:
       - name: Terraform Apply
         
         if: github.ref == 'refs/heads/svcuser' && github.event_name == 'push'
-        run: terraform apply -var="username=${{ secrets.SNOWFLAKE_USERNAME }}" -var="password=${{ secrets.SNOWFLAKE_PASSWORD }}" -var="account=${{ secrets.SNOWFLAKE_PASSWORD }}" -auto-approve -input=false
+        run: terraform apply -var="username=${{ secrets.SNOWFLAKE_USER }}" -var="password=${{ secrets.SNOWFLAKE_PASSWORD }}" -var="account=${{ secrets.SNOWFLAKE_ACCOUNT }}" -auto-approve -input=false
