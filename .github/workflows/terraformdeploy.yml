@@ -28,17 +28,17 @@ jobs:
           password: ${{ secrets.SNOWFLAKE_PASSWORD }}
           account: ${{ secrets.SNOWFLAKE_ACCOUNT }}
         run: |
-            export username=${{ secrets.SNOWFLAKE_USERNAME }}
-            export password=${{ secrets.SNOWFLAKE_PASSWORD }}
-            export account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+            export SNOWFLAKE_USERNAME=username
+            export SNOWFLAKE_PASSWORD=password
+            export SNOWFLAKE_ACCOUNT=account
       
 
       - name: Terraform Init
         id: init
         run: |
-            export username=${{ secrets.SNOWFLAKE_USERNAME }}
-            export password=${{ secrets.SNOWFLAKE_PASSWORD }}
-            export account=${{ secrets.SNOWFLAKE_ACCOUNT }}
+            export SNOWFLAKE_USERNAME=username
+            export SNOWFLAKE_PASSWORD=password
+            export SNOWFLAKE_ACCOUNT=account
             terraform init 
       
       - name: Terraform Validate
