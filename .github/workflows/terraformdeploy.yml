@@ -48,7 +48,11 @@ jobs:
       - name: Terraform Plan
         id: plan
         
-        run: terraform plan 
+        run: |
+            export SNOWFLAKE_USERNAME="$username"
+            export SNOWFLAKE_PASSWORD="$password"
+            export SNOWFLAKE_ACCOUNT="$account"
+            terraform plan 
         continue-on-error: true
 
       - name: Update Pull Request
