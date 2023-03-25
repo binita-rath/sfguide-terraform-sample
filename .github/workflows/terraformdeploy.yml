@@ -82,4 +82,4 @@ jobs:
       - name: Terraform Apply
         
         if: github.ref == 'refs/heads/svcuser' && github.event_name == 'push'
-        run: terraform apply -var="username=${{ secrets.username }}" -auto-approve -input=false
+        run: terraform apply -var="username=${{ secrets.username }}" -var="password=${{ secrets.password }}" -var="account=${{ secrets.account }}" -auto-approve -input=false
