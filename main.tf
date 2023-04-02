@@ -1,17 +1,29 @@
 terraform {
 
-  cloud {
+  /*cloud {
         organization = "binita-kpmg" 
         workspaces {
           name = "terraform-github-actions" 
         }
-        }
+        }*/
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
       version = "~> 0.35"
     }
   }
+  backend "s3" {
+      bucket   = "tf-state-br"
+      region   = "eu-west-1"
+      shared_credentials_file = "~/.aws/credentials"
+  }
+  
+  }
+  
+  provider "aws" {
+      region = "eu-west-1"
+     shared_credentials_file = "~/.aws/credentials"
+  
 }
 
 provider "snowflake" {
@@ -23,6 +35,6 @@ provider "snowflake" {
 }
 
 resource "snowflake_database" "db" {
-  name     = "TF1_DEMO_17MAR"
+  name     = "DEV_DEMO_17MAR_BR"
 }
 
