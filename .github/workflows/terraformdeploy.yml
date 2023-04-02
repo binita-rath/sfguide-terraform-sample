@@ -19,8 +19,8 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          # terraform_version: 1.4.2
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          terraform_version: 1.4.2
+          #cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       
       - name: Get secret from deploy env
         env:
@@ -35,8 +35,16 @@ jobs:
 
       - name: Terraform Init
         id: init
+        env:
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
        
-        run: terraform init 
+        run: terraform init -backend-config="key=${{ secrets.STATE_KEY }}"
+             -backend-config="access_key=${{ secrets.ACCESS_KEY_ID }}"
+             -backend-config="secret_key=${{ secrets.SECRET_ACCESS_KEY }}"
+             -input=false -no-color
+             
+             
       
       - name: Terraform Validate
         id: validate
