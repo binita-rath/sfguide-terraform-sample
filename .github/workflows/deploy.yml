@@ -55,7 +55,7 @@ jobs:
         id: plan
         
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false
+        run: terraform plan -var="username=${{ secrets.SNOWFLAKE_USER }}" -var="password=${{ secrets.SNOWFLAKE_PASSWORD }}" -var="account=${{ secrets.SNOWFLAKE_ACCOUNT }}" 
         continue-on-error: true
         
 

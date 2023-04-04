@@ -35,6 +35,6 @@ provider "snowflake" {
 }
 
 resource "snowflake_database" "db" {
-  name     = "DEV_DEMO_17MAR_BR"
+  name     = "DEV_DEMO_04APR_BR"
 }
 
